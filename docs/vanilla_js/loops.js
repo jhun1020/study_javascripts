@@ -12,6 +12,7 @@ for (let animal of animals) {
   console.log(`${animal}`);
 }
 
+
 // ------------------
 const cars = ["BMW", "VOLVO", "Mini"];
 for (let car of cars) {
@@ -19,3 +20,27 @@ for (let car of cars) {
 }
 
 console.log();
+
+//   ==>  for iterable 을 forEach로
+cars.forEach(car) => console.log(`${car}`);
+
+
+
+//---------------------------
+// forEach    
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+
+// expected output: "a"
+// expected output: "b"
+// expected output: "c"
+
+//  1) Arrow Function    // => 기준으로 앞은 파라미터, 오른쪽은 {}기능
+let arrowFunction = element => console.log(element);
+// 같은 표현 = (element) => {console.log(element)};
+array1.forEach(arrowFunction);
+
+
+//  2)  Normal Function
+function elementNormal()
