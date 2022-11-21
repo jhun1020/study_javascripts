@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 onclick="alert('alter window !')">Index</h3>
+    <h3 onclick="window.alert('alter window !')">Index</h3>
+    <h3 onclick="window.close()">window close</h3>
+    <!-- 문구 클릭하면 팝업창이 뜬다 -->
+    <!-- 화면 변화 없이 액션이 뜬다. -->
+
+    <script>
+      const animals = ["dog", "cat", "bird", "fish", "lizard"];
+
+      //Normal
+      for (i = 0; i < animals.length; i++) {
+        console.log(`${animals[i]}`);
+      }
+
+      // for iterable  배열을 순서적으로 뽑아줌
+      //   (let)새로지칭할변수 of 기존변수   새로 만든 변수라면 let const 써야함
+      //
+      for (let animal of animals) {
+        console.log(`${animal}`);
+      }
+      //내부적으로 돌아감  화면에 표출되지는 않는다
+    </script>
+  </body>
+</html>
