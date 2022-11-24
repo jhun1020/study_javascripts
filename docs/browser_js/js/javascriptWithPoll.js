@@ -67,6 +67,8 @@ let survey = document.querySelector("#survey");
 
 // 버튼 생성 후 설문과 연결
 let queryButton = document.querySelector("#nextBtn");
+// 라디오 버튼 추가
+let queryRadio = document.querySelector("#radio");
 
 // 버튼에 이벤트 추가
 queryButton.addEventListener("click", nextBtn());
@@ -86,7 +88,7 @@ for (let idx = 0; idx < answers.length; idx++) {
 
     answer_uids.push(answers[idx]["example_uid"]);
   } else {
-    answer_uids.push(`questions_uid : ${answers[idx]["example_uid"]}`);
+    answer_uids.push(answers[idx]["example_uid"]);
   }
   question_compare = answers[idx]["questions_uid"];
 }
@@ -96,17 +98,22 @@ for (let idx = 0; idx < answers.length; idx++) {
 survey.innerHTML = nextBtn(questions_list[0]["questions_uid"]);
 
 // 질문 출력 func
-function nextBtn(element) {
+function nextBtn(Q_num, Order_num) {
+  // let desc = question_desc + answer_desc;
   let question_desc;
+  let answer_desc;
   // 배열을 풀어서    // list = {question :"ㅁ" , questions_uid : "ㄴ", order : "ㄷ"}  이상태
   for (list of questions_list) {
-    if (list["questions_uid"] == element) {
+    //  q_n 값이 element와 같다면
+    if (list["questions_uid"] == Q_num) {
       // 질문을 desc에 담고 return
       question_desc = list["question"];
     }
   }
   return question_desc;
 }
-// for (let i = 0; i < questions_list.length; i++) {
-//   survey.innerHTML = nextBtn(questions_list[i]["questions_uid"]);
-// }
+//  ---------첫 문장 출력 까지 ---------
+// ....,,next버튼 어렵다..
+// !! 차례대로 출력..  ( ? )
+// !! 응답 라디오버튼에 연결 ( 가능 )
+// !! 통계  ( ? )
