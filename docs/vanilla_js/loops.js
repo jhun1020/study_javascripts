@@ -22,7 +22,7 @@ for (let car of cars) {
 console.log();
 
 //   ==>  for iterable 을 forEach로
-cars.forEach(car) => console.log(`${car}`);
+cars.forEach(car => console.log(`${car}`));
 
 
 

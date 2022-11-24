@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/events.css" />
+  </head>
+  <body>
+    <!-- event javascript mdn 검색 -->
+    <!-- https://developer.mozilla.org/ko/docs/Web/Events -->
+
+    <!-- w3schools -->
+    <!-- https://www.w3schools.com/js/js_htmldom_events.asp -->
+
+    <!-- 1) 클릭하면 메시지가 뜨게 함 -->
+    <div onclick="alert('click on Me')">Click on Me!! with alert()</div>
+
+    <!-- 2) alert도 func이다. 똑같은 방법으로 우리가 만든 func를 넣어보자  -->
+    <div id="changetext" onclick="changeText()">Click on Me!! with func()</div>
+    <!-- 이렇게 직접 onclick을 넣어주는건 하드코딩방법 -->
+
+    <!-- listener -->
+    <h3>Listener</h3>
+    <div id="clickalert">Click on Me! with alert()</div>
+
+    <!-- 버튼누르면 바뀜 -->
+    <div id="targetText">Target Change Text</div>
+    <button id="buttonChangeText">Change Text</button>
+    <script src="./js/events.js"></script>
+  </body>
+</html>

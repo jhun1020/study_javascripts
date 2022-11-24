@@ -61,17 +61,22 @@ const answers2 = [
   { questions_uid: "Q5", example_uid: "E2" },
   { questions_uid: "Q5", example_uid: "E3" },
 ];
+let question_compare;
 let idx;
-let compare;
 for (idx = 0; idx < answers.length; idx++) {
-  if (compare != answers[idx]["questions_uid"]) {
-    console.log(`${answers[idx]["questions_uid"]}`);
-    console.log(`${answers[idx]["example_uid"]}`);    //다를때는 설문문항, 답항
-  } else{
-    console.log(`${answers[idx]["example_uid"]}`);     //같을떄는 답항만
+  if (question_compare == answers[idx]["questions_uid"]) {
+    console.log(
+      `== : ${answers[idx]["questions_uid"]}, ${answers[idx]["example_uid"]}`
+    );
+  } else {
+    console.log(
+      `!= : ${answers[idx]["questions_uid"]}, ${answers[idx]["example_uid"]}`
+    );
   }
 
-console.log();
+  question_compare = answers[idx]["questions_uid"];
+}
+console.log(`${answers.length}, ${idx}`);
 
 function questions_display(element) {
   let question =
@@ -79,45 +84,45 @@ function questions_display(element) {
   console.log(`${question}`);
 }
 
-function answers_display(...args) {
-  let answer = (arg) => console.log(`${answers[arg]["example"]}`);
-  args.forEach(answer);
-}
+// function answers_display(...args) {
+//   let answer = (arg) => console.log(`${answers[arg]["example"]}`);
+//   args.forEach(answer);
+// }
 
-let user_answer_display = function user_answer(element) {
-  console.log(`답)  (${inputs[element]})`);
-};
+// let user_answer_display = function user_answer(element) {
+//   console.log(`답)  (${inputs[element]})`);
+// };
 
-for (let i = 0; i < questions.length; i++) {
-  questions_display(i); // 질문
-  switch (i) {
-    case 0:
-      answers_display(0, 1, 2); //답항
-      user_answer_display(i); //대답
-      break;
+// for (let i = 0; i < questions.length; i++) {
+//   questions_display(i); // 질문
+//   switch (i) {
+//     case 0:
+//       answers_display(0, 1, 2); //답항
+//       user_answer_display(i); //대답
+//       break;
 
-    case 1:
-      answers_display(0, 1, 2, 3);
-      user_answer_display(i);
-      break;
+//     case 1:
+//       answers_display(0, 1, 2, 3);
+//       user_answer_display(i);
+//       break;
 
-    case 2:
-      answers_display(0, 1);
-      user_answer_display(i);
-      break;
+//     case 2:
+//       answers_display(0, 1);
+//       user_answer_display(i);
+//       break;
 
-    case 3:
-      answers_display(0, 1, 2, 3, 4);
-      user_answer_display(i);
-      break;
+//     case 3:
+//       answers_display(0, 1, 2, 3, 4);
+//       user_answer_display(i);
+//       break;
 
-    case 4:
-      answers_display(0, 1, 2);
-      user_answer_display(i);
-      break;
-  }
-  console.log(" ");
-}
+//     case 4:
+//       answers_display(0, 1, 2);
+//       user_answer_display(i);
+//       break;
+//   }
+//   console.log(" ");
+// }
 
 console.log("-------------------설문자 선택--------------------");
 for (i = 0; i < questions.length; i++) {

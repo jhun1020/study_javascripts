@@ -21,18 +21,25 @@ let item = "<div class='item'>" + animal["name"] + animal["age"] + "</div>";
 queryApp.innerHTML = item;
 
 // ----------------
+// const productsData = [
+//   { title: "감자칩", weight: 300 },
+//   { title: "칙촉", weight: 100 },
+//   { title: "고구마칩", weight: 300 },
+// ];
+// let Lists = document.querySelector("#list");
+
+// // let p_data = `<div id="list"> ${productsData[0]["title"]} : ${productsData[0]["weight"]} </div> \n
+// //               <div id="list"> ${productsData[1]["title"]} : ${productsData[1]["weight"]} </div> \n
+// //               <div id="list"> ${productsData[2]["title"]} : ${productsData[2]["weight"]} </div> `;
+// let p_data2;
+// productsData.forEach((element) => {
+//   p_data2 = `<div id="list"> ${element["title"]} : ${element["weight"]} </div>`;
+//   Lists.innerHTML += p_data2;
+// });
+
 const productsData = [
   { title: "감자칩", weight: 300 },
   { title: "칙촉", weight: 100 },
   { title: "고구마칩", weight: 300 },
 ];
-let Lists = document.querySelector("#list");
-
-// let p_data = `<div id="list"> ${productsData[0]["title"]} : ${productsData[0]["weight"]} </div> \n
-//               <div id="list"> ${productsData[1]["title"]} : ${productsData[1]["weight"]} </div> \n
-//               <div id="list"> ${productsData[2]["title"]} : ${productsData[2]["weight"]} </div> `;
-let p_data2;
-productsData.forEach((element) => {
-  p_data2 = `<div id="list"> ${element["title"]} : ${element["weight"]} </div>`;
-  Lists.innerHTML += p_data2;
-});
+list
