@@ -95,22 +95,109 @@ for (let idx = 0; idx < questions_answers.length; idx++) {
 // Q2. 주문시 직원은 고객님께 친절 하였습닉?ㅏ?
 // ...
 
+// // 내가 해 본 func      ----------
+// function getQuestionByUid(question_uid) {
+//   let question_desc;
+//   for (list of questions_list) {
+//     if (list["question_uid"] == questions_uid) {
+//       question_desc = list["question"];
+//     }
+//   }
+//   return question_desc;
+// }
+// // ------------------------
+
+// 강사님이 하신 func
 function getQuestionByUid(question_uid) {
-  let question_desc;
-  for (list of questions_list) {
-    if (list["question_uid"] == questions_uid) {
-      question_desc = list["question"];
+  let question_desc = "";
+  // question_uid = 'Q1'
+  for (question of questions_list) {
+    if (question["questions_uid"] === question_uid) {
+      question_desc = question["question"];
+      break;
     }
   }
-
   return question_desc;
 }
 
+function getAnswerByUid(answer_uid) {
+  let answer_desc = "";
+  for (answer of answer_list) {
+    if (answer["answer_uid"] === answer_uid) {
+      answer_desc = answer["answer"];
+      break;
+    }
+  }
+  return answer_desc;
+}
+
 for (poll of polls) {
-  console.log(`${poll["questions_uid"]}`); // == polls[idx]
+  let question_desc = getQuestionByUid(poll["questions_uid"]);
+  // console.log(`${poll["questions_uid"]}. ${question_desc}`); // == polls[idx]
   let answer_uids = poll["answer_uids"];
   answer_uids.forEach((answer_uid, index) => {
     // answers
-    console.log(`${index + 1}. ${answer_uid}`);
+    // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
   });
+}
+
+// Event handlers
+// Next 클릭 시 순서 있게 설문 표시
+// 대상 변수는 polls
+let queryNext = document.querySelector("#next");
+queryNext.addEventListener("click", setPollContent);
+
+let index = 0;
+function setPollContent() {
+  let queryContent = document.querySelector("#poll-contents");
+  // polls[0]["questions_uid"]; // 설문 문항
+  // polls[0]["answer_uids"]; // 설문 답항 묶음
+  // getQuestionByUid(polls[index]["questions_uid"]);
+  //        1.        매장 상태가 좋은가요?
+
+  if (index < questions_list.length) {
+    let desc = `<div>${index + 1}. ${getQuestionByUid(
+      polls[index]["questions_uid"]
+    )}</div><br>`;
+    polls[index]["answer_uids"].forEach((answer_uid, index) => {
+      // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
+      desc += `<div><input type="radio">${index + 1}. ${getAnswerByUid(
+        answer_uid
+      )}</div>`;
+    });
+    queryContent.innerHTML = desc;
+    index++;
+  } else {
+    clickAlert();
+  }
+}
+// next, prev 둘 다 사용 하기 위해 func로 만들었음.
+function clickAlert() {
+  alert("경고");
+}
+
+let queryPrev = document.querySelector("#prev");
+queryPrev.addEventListener("click", setPollContent_prev);
+let index_prev = questions_list.length - 1; // 5 -1
+
+function setPollContent_prev() {
+  if (index == 1) {
+    clickAlert();
+  } else {
+    let queryContent_prev = document.querySelector("#poll-contents");
+    // 질문부분
+    let desc_prev = `<div>${index - 1}. ${getQuestionByUid(
+      polls[index - 2]["questions_uid"]
+    )}</div><br>`;
+    // 답변부분
+    polls[index - 2]["answer_uids"].forEach((answer_uid, index) => {
+      // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
+      desc_prev += `<div><input type="radio"> ${index + 1}. ${getAnswerByUid(
+        answer_uid
+      )}</div>`;
+    });
+
+    queryContent_prev.innerHTML = desc_prev;
+    index--;
+  }
 }
