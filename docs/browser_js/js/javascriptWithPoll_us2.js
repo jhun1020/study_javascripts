@@ -161,9 +161,9 @@ function setPollContent() {
     )}</div><br>`;
     polls[index]["answer_uids"].forEach((answer_uid, index) => {
       // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
-      desc += `<div><input type="radio">${index + 1}. ${getAnswerByUid(
-        answer_uid
-      )}</div>`;
+      desc += `<div><input type="radio" name="choice">${
+        index + 1
+      }. ${getAnswerByUid(answer_uid)}</div>`;
     });
     queryContent.innerHTML = desc;
     index++;
@@ -192,9 +192,9 @@ function setPollContent_prev() {
     // 답변부분
     polls[index - 2]["answer_uids"].forEach((answer_uid, index) => {
       // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
-      desc_prev += `<div><input type="radio"> ${index + 1}. ${getAnswerByUid(
-        answer_uid
-      )}</div>`;
+      desc_prev += `<div><input type="radio" name="choice"> ${
+        index + 1
+      }. ${getAnswerByUid(answer_uid)}</div>`;
     });
 
     queryContent_prev.innerHTML = desc_prev;
