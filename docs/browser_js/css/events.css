@@ -1,3 +1,6 @@
 * {
   border: 1px dotted gray;
 }
+ul:first {
+  p: button;
+}

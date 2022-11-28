@@ -1,0 +1,17 @@
+.list > div {
+  display: inline-block;
+  width: 30%;
+  border: 1px solid gray;
+}
+.list > img {
+  margin: 1rem;
+  text-align: center;
+}
+
+#btn_first {
+  text-align: center;
+  background-color: green;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}
