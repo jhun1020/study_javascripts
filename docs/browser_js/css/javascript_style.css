@@ -1,14 +1,18 @@
 .list > div {
   display: inline-block;
-  width: 30%;
+  width: 250px;
   border: 1px solid gray;
 }
+.list > div > div {
+  text-align: center;
+}
 .list > img {
-  margin: 1rem;
   text-align: center;
 }
 
-#btn_first {
+#btn_1,
+#btn_2,
+#btn_3 {
   text-align: center;
   background-color: green;
   margin: 0.5rem;
